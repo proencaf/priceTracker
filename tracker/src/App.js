@@ -3,8 +3,6 @@ import axios from 'axios'
 import './App.css'
 import Coin from './component/coin/Coin'
 
-//api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&order=market_cap_desc&per_page=100&page=1&sparkline=false
-
 function App() {
   const [coins, setCoins] = useState([])
   const [search, setSearch] = useState('')
@@ -49,8 +47,10 @@ function App() {
             name={coin.name}
             image={coin.image}
             symbol={coin.symbol}
-            volume={coin.market_cap}
+            marketcap={coin.market_cap}
             price={coin.current_price}
+            priceChange={coin.price_change_percentage_24h}
+            volume={coin.total_volume}
           />
         )
       })}
